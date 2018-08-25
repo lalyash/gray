@@ -4,16 +4,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Untitled Document</title>
 </head>
-
 <body>
+<div style="background-color:#33CC66;width:100%;height:200px;color:#336600">
 <?php
-session_start();
-if(isset($_SESSION['username1']) && isset($_SESSION['password1'])){
-unset($_SESSION['username1']);
-unset($_SESSION['password1']);
-header("Location:main.php");
-exit;
-}
+$fin=$_GET['order'];
+echo "<b>Thank you ! Your total order is of :</b>".$fin;
 ?>
+</div>
 </body>
 </html>

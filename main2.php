@@ -185,8 +185,21 @@ The Gray Machine</br>
 </div>
 
 <div id="drpdwn" style="width:25%;height:40px">
- <button class="bt1" id="btn1" onclick="frm()">Login & Signup</button>
-
+ <form action="#" method="post">
+ <input type="submit" class="bt1" id="btn1" name="logout1" value="logout" style="height:40px"/>
+</form>
+<?php
+session_start();
+if(isset($_POST['logout1'])){
+header("Location:main.php");
+if(isset($_SESSION['username1']) && isset($_SESSION['password1'])){
+unset($_SESSION['username1']);
+unset($_SESSION['password1']);
+header("Location:main.php");
+exit;
+}
+}
+?>
 </div>
 </div>
 <div>
@@ -278,7 +291,12 @@ else {
 $con->close();
 ?>
 <script>
+
+
 </script>
+
+
+
 </div>
 <div style="width:100%;height:250px;background:#999999">
 <div style="width:35%;height:100%">
@@ -301,15 +319,10 @@ $con->close();
 </div>
 
 </div>
-<script>
-function frm(){
-document.getElementById('frm1').style.display="block";
-window.scrollTo(40,40);
-}
-function clos(){
-document.getElementById('frm1').style.display="none";
-}
-</script>
+
+
+
+
   
 <div id="frm1" class="frm1">
 <div id="im">
@@ -325,5 +338,6 @@ new user?<a href="signup.php">Signup</a>
 <div>
 <a href="fileupld.php">Admin</a>
 </div>
+
 </body>
 </html>

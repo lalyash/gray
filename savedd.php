@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -16,9 +19,11 @@ if (mysqli_connect_errno())
   }
 //inserting Record to the database
 
-$sql="INSERT INTO details(username,password) VALUES('$fname','$pas')";
+$sql="INSERT INTO detail(username,password) VALUES('$fname','$pas')";
 if($con->query($sql)==TRUE){
-echo "Data saved successfully";
+$_SESSION['username1']=$fname;
+$_SESSION['password1']=$pas;
+header("Location:main2.php");
 }
 else{
 echo "Error creating database: " . $con->error;
